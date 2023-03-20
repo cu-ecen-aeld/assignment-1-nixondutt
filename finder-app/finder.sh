@@ -19,8 +19,8 @@ then
     echo "Does not present a directory on the filesystem"
     exit 1
 fi 
-
-X=$(ls -la "$filesdir" | wc -l)
-X=$((X-3))
+X=$(find $filesdir -type f| wc -l)
+# X=$(ls -la "$filesdir" | wc -l)
+#X=$((X-3))
 Y=$(grep -i $searchstr -r $filesdir | wc -l) 
 echo "The number of files are $X and the number of matching lines are $Y"
